@@ -55,8 +55,13 @@ kwic(comments_tokens, pattern = "+")
 Summary of problematic tokens:
 
 * HTML tags: "<br>"
-* Special characters: "#39", "quot", "rsquo", "ldquo", "rdquo"
+* Special characters: "#39", "quot", "rsquo", "ldquo", "rdquo", "�", "o"
 * Contractions: "re", "m", "ve"
 * List items: some numbers (esp. 1, 2, 3,...) and "b" and "c" and probably "a" too
 * Numbers: some numbers are meaningful, like 9/11 is an important historical event being referenced. Others are not meaningful
 * Other: "+"
+
+```{r}
+comments_corpus[str_detect(comments_corpus, pattern = "�")][[1]]
+```
+
