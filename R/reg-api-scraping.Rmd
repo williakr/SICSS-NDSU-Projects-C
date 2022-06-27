@@ -124,7 +124,7 @@ comments_data <- map_dfr(reg_comments_details, function(x) {
 
 comments_data$commentText
 
-# saveRDS(comments_data, file = "../data/comments_scraped.rds")
+saveRDS(comments_data, file = "../data/comments_scraped.rds")
 write_csv(comments_data, file = "../data/comments_scraped.csv")
 ```
 
