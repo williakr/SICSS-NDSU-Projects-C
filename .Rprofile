@@ -1,1 +1,0 @@
-Sys.setenv(RETICULATE_PYTHON = "~/opt/anaconda3/bin/python")
