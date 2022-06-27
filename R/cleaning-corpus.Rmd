@@ -20,7 +20,7 @@ library(tidytext)
 
 ```{r}
 comments_data <- read_csv("../data/pdfcomments_scraped.csv") # replace with the file with attachments
-comments_corpus <- corpus(comments_data$commentText)
+comments_corpus <- corpus(comments_data$commentText, docnames = comments_data$commentID)
 ```
 
 # Basic checks
@@ -37,7 +37,18 @@ dfm(comments_tokens,
   as.data.frame()
 ```
 
+Inspecting some of the problematic tokens in context
 ```{r}
-
+kwic(comments_tokens, pattern = "br")
+kwic(comments_tokens, pattern = "#39")
+kwic(comments_tokens, pattern = "quot")
+kwic(comments_tokens, pattern = "rsquo")
+kwic(comments_tokens, pattern = "ldquo")
+kwic(comments_tokens, pattern = "rdquo")
+kwic(comments_tokens, pattern = "1")
+kwic(comments_tokens, pattern = "11") # September 11, 2001
+kwic(comments_tokens, pattern = "2")
+kwic(comments_tokens, pattern = "o") # confused
+kwic(comments_tokens, pattern = "b") # list item
 ```
 
