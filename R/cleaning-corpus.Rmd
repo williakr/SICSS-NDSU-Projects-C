@@ -1,0 +1,43 @@
+---
+title: "Cleaning the corpus"
+output: html_notebook
+---
+
+# Setup
+
+```{r}
+library(tidyverse)
+library(quanteda)
+library(quanteda.corpora)
+library(quanteda.textplots)
+library(quanteda.textstats)
+library(quanteda.sentiment)
+library(tm)
+library(tidytext)
+```
+
+# Reading in the data
+
+```{r}
+comments_data <- read_csv("../data/pdfcomments_scraped.csv") # replace with the file with attachments
+comments_corpus <- corpus(comments_data$commentText)
+```
+
+# Basic checks
+
+```{r}
+comments_tokens <- tokens(
+  x = comments_corpus,
+  what = "word",
+  remove_punct = TRUE
+)
+
+dfm(comments_tokens,
+    tolower = TRUE) %>% colSums() %>% sort(decreasing = TRUE) %>%
+  as.data.frame()
+```
+
+```{r}
+
+```
+
