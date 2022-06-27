@@ -49,6 +49,14 @@ kwic(comments_tokens, pattern = "1")
 kwic(comments_tokens, pattern = "11") # September 11, 2001
 kwic(comments_tokens, pattern = "2")
 kwic(comments_tokens, pattern = "o") # confused
-kwic(comments_tokens, pattern = "b") # list item
+kwic(comments_tokens, pattern = "b") # list item; also remove "c"
+kwic(comments_tokens, pattern = "+")
 ```
+Summary of problematic tokens:
 
+* HTML tags: "<br>"
+* Special characters: "#39", "quot", "rsquo", "ldquo", "rdquo"
+* Contractions: "re", "m", "ve"
+* List items: some numbers (esp. 1, 2, 3,...) and "b" and "c" and probably "a" too
+* Numbers: some numbers are meaningful, like 9/11 is an important historical event being referenced. Others are not meaningful
+* Other: "+"
